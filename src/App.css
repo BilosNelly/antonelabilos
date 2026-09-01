@@ -165,8 +165,13 @@
   object-fit: cover;
   object-position: 22% 26%;
   mix-blend-mode: multiply;
-  opacity: 0.95;
+  opacity: 0;
   filter: contrast(1.04) brightness(1.02);
+  transition: opacity 0.7s ease;
+}
+
+.hero__photo[data-ready='true'] {
+  opacity: 0.95;
 }
 
 .surface--hero::after {
@@ -836,7 +841,7 @@ a.card:focus-visible {
   );
 }
 
-.figure__frame img,
+.figure__frame .figure__slot,
 .figure__frame .figure__ph {
   position: relative;
   z-index: 1;
@@ -849,8 +854,64 @@ a.card:focus-visible {
   display: block;
 }
 
-.figure.contain .figure__frame img {
+.figure.contain .figure__slot img {
   object-fit: contain;
+}
+
+/* transparent cut-outs float on the page, not on a filled box */
+.figure.contain .figure__slot {
+  background: none;
+}
+
+.figure.contain .figure__slot.is-loading::after {
+  display: none;
+}
+
+/* image slot: warm placeholder + shimmer while loading, soft reveal on load */
+.figure__slot {
+  overflow: hidden;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--peach), var(--sand));
+}
+
+.figure__slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.figure__slot img[data-ready='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+.figure__slot.is-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    100deg,
+    transparent 25%,
+    color-mix(in srgb, var(--cream) 48%, transparent) 44%,
+    color-mix(in srgb, var(--cream) 78%, transparent) 50%,
+    color-mix(in srgb, var(--cream) 48%, transparent) 56%,
+    transparent 75%
+  );
+  background-repeat: no-repeat;
+  background-size: 250% 100%;
+  animation: figure-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes figure-shimmer {
+  from {
+    background-position: 165% 0;
+  }
+  to {
+    background-position: -65% 0;
+  }
 }
 
 .figure__ph {
@@ -1164,5 +1225,13 @@ a.contact__row:focus-visible .contact__val {
   .timeline__hintArrow,
   .surface--page > .view {
     animation: none;
+  }
+
+  .figure__slot.is-loading::after {
+    display: none;
+  }
+
+  .figure__slot img {
+    transform: none;
   }
 }

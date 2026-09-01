@@ -23,8 +23,14 @@ export function Home() {
       <div className="hero__bg" aria-hidden="true" />
       <img
         className="hero__photo"
-        src="/antonela-portrait.png"
+        src="/antonela-portrait.jpg"
         alt="Portrait of Antonela"
+        ref={(el) => {
+          if (el?.complete) el.dataset.ready = 'true'
+        }}
+        onLoad={(e) => {
+          e.currentTarget.dataset.ready = 'true'
+        }}
       />
       <div className="hero__content">
         <h1 className="hero__title">
@@ -67,9 +73,8 @@ export function Work() {
         </div>
         <Figure
           {...photos.working}
-          ratio="4 / 3"
-          focus="64% 42%"
-          className="work__portrait"
+          ratio="3 / 2"
+          className="work__portrait contain"
         />
       </header>
 

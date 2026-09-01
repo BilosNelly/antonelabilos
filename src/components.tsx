@@ -96,25 +96,38 @@ export function Figure({
   className?: string
   focus?: string
 }) {
-  const [failed, setFailed] = useState(false)
+  const [state, setState] = useState<'loading' | 'ready' | 'error'>('loading')
   const boxStyle = ratio ? { aspectRatio: ratio } : undefined
+
+  const settle = (el: HTMLImageElement | null) => {
+    if (el && el.complete && el.naturalWidth > 0) setState('ready')
+  }
 
   return (
     <figure className={className ? `figure ${className}` : 'figure'}>
       <div className="figure__frame">
-        {failed ? (
+        {state === 'error' ? (
           <div className="figure__ph" style={boxStyle}>
             <span>Photo coming soon</span>
             <code>public{src}</code>
           </div>
         ) : (
-          <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            style={{ ...boxStyle, objectPosition: focus }}
-            onError={() => setFailed(true)}
-          />
+          <div
+            className={`figure__slot${state === 'loading' ? ' is-loading' : ''}`}
+            style={boxStyle}
+          >
+            <img
+              ref={settle}
+              src={src}
+              alt={alt}
+              loading="lazy"
+              decoding="async"
+              data-ready={state === 'ready'}
+              style={focus ? { objectPosition: focus } : undefined}
+              onLoad={() => setState('ready')}
+              onError={() => setState('error')}
+            />
+          </div>
         )}
       </div>
       {caption ? <figcaption>{caption}</figcaption> : null}
