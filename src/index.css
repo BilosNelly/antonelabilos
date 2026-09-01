@@ -1,0 +1,52 @@
+:root {
+  /* "Breakfast tea" palette */
+  --peach: #ffd3ac;
+  --sand: #ccbeb1;
+  --coffee: #664c36;
+  --espresso: #331c08;
+  --cream: #f7ede1;
+  --paper: #fbf7f1;
+
+  --ink: var(--espresso);
+
+  --radius: 22px;
+  --frame: clamp(10px, 1.4vw, 18px);
+  --measure: 66ch;
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  background: var(--espresso);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--espresso);
+  color: var(--paper);
+}
