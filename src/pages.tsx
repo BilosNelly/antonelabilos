@@ -101,6 +101,16 @@ export function Work() {
           <p className="card__meta">{nelcoItem.meta}</p>
           <h2 className="card__title">{nelcoItem.title}</h2>
           <p className="card__desc">{nelcoItem.desc}</p>
+          <dl className="card__ps">
+            <div>
+              <dt>Problem</dt>
+              <dd>{nelcoItem.problem}</dd>
+            </div>
+            <div>
+              <dt>Solution</dt>
+              <dd>{nelcoItem.solution}</dd>
+            </div>
+          </dl>
           <span className="card__cta">Visit nelco.ai ↗</span>
         </a>
 

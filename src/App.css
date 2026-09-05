@@ -552,6 +552,45 @@ a.card:focus-visible {
   color: var(--espresso);
 }
 
+/* labelled problem / solution inside a card */
+.card__ps {
+  margin: 1.15em 0 0;
+  display: grid;
+  gap: 0.8em;
+  max-width: 62ch;
+  border-top: 1px solid color-mix(in srgb, var(--coffee) 18%, transparent);
+  padding-top: 1.15em;
+}
+
+.card__ps > div {
+  display: grid;
+  grid-template-columns: 84px 1fr;
+  gap: 4px 16px;
+}
+
+.card__ps dt {
+  padding-top: 0.15em;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+  color: var(--coffee);
+}
+
+.card__ps dd {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--espresso) 80%, transparent);
+}
+
+@media (max-width: 560px) {
+  .card__ps > div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
+
 /* ---- about intro layout ---- */
 
 .about__hero {

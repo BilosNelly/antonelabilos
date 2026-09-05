@@ -34,7 +34,11 @@ export const hackathonItem = {
 export const nelcoItem = {
   meta: 'Side project · AI',
   title: 'nelco.ai',
-  desc: 'An AI app that scrapes, summarizes and translates content with LLMs and RAG. Built with Lovable.',
+  desc: 'LLMs, RAG and agent workflows, built with Lovable.',
+  problem:
+    'Most people in the Balkans do not read English easily. The good tech and AI writing, the analysis and not just the headlines, is almost all in English, so it never reaches them. Local media mostly covers general news.',
+  solution:
+    'nelco.ai collects tech and AI stories from strong sources, pulls out the key insight, and translates it into local languages, so people can follow what is actually happening in tech in a language they think in.',
   href: 'https://nelco.ai',
 }
 
