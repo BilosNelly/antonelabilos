@@ -203,7 +203,9 @@
 
 .hero__title {
   margin: 0;
-  /* em-scaled clearance so the dark block never crowds the line below */
+  /* em-scaled clearance so the dark block never bleeds into the nav above
+     or crowds the line below */
+  padding-top: 0.35em;
   padding-bottom: 0.5em;
   font-family: var(--font-display);
   font-optical-sizing: auto;
@@ -647,7 +649,7 @@ a.card:focus-visible {
 @media (min-width: 820px) {
   .timeline-wrap {
     grid-template-columns: 180px 1fr;
-    align-items: start;
+    align-items: center;
   }
 
   .timeline__media {
@@ -1212,6 +1214,14 @@ a.contact__row:focus-visible .contact__val {
 /* ================================================================== *\
    Responsive
 \* ================================================================== */
+
+/* Wide screens push the title to its max size, so the "nela" block needs
+   more headroom to clear the sticky nav above it. */
+@media (min-width: 1350px) {
+  .hero__content {
+    top: clamp(140px, 14vh, 190px);
+  }
+}
 
 @media (max-width: 860px) {
   .hero__title {
