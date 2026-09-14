@@ -827,11 +827,22 @@ a.card:focus-visible {
   color: color-mix(in srgb, var(--espresso) 60%, transparent);
 }
 
-/* ---- a small aside photo + playful caption ---- */
+/* ---- a small photo floated beside the closing paragraphs ---- */
 
-.about__moment {
-  margin: 2.6em 0 0;
-  max-width: 250px;
+.about__float {
+  float: right;
+  width: 42%;
+  max-width: 190px;
+  margin: 0.2em 0 1em 22px;
+}
+
+@media (max-width: 560px) {
+  .about__float {
+    float: none;
+    width: 100%;
+    max-width: 220px;
+    margin: 0 0 1.2em;
+  }
 }
 
 /* ---- gallery ---- */
