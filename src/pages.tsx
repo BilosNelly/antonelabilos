@@ -188,21 +188,19 @@ export function About() {
             <div key={i}>
               <p>{para}</p>
               {i === 2 ? (
-                <>
-                  <Figure
-                    {...photos.jsconf}
-                    ratio="4 / 5"
-                    focus="50% 30%"
-                    className="blob-c about__float"
-                  />
-                  <blockquote className="quote">{aboutQuote}</blockquote>
-                </>
+                <blockquote className="quote">{aboutQuote}</blockquote>
               ) : null}
             </div>
           ))}
         </div>
         <div className="about__photos">
           <Figure {...photos.networking} ratio="4 / 5" className="blob-b" />
+          <Figure
+            {...photos.jsconf}
+            ratio="4 / 5"
+            focus="50% 30%"
+            className="blob-c"
+          />
         </div>
       </div>
 
