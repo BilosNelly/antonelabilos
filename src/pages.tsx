@@ -198,6 +198,15 @@ export function About() {
         </div>
       </div>
 
+      <div className="about__moment">
+        <Figure
+          {...photos.jsconf}
+          ratio="4 / 5"
+          focus="50% 30%"
+          className="blob-c"
+        />
+      </div>
+
       <h2 className="section__title">The short version</h2>
       <div className="timeline-wrap">
         <Figure
@@ -234,15 +243,6 @@ export function About() {
             <p className="xp__place">{job.place}</p>
           </article>
         ))}
-      </div>
-
-      <div className="about__moment">
-        <Figure
-          {...photos.jsconf}
-          ratio="4 / 5"
-          focus="50% 30%"
-          className="blob-c"
-        />
       </div>
 
       <h2 className="section__title">Off the clock</h2>
