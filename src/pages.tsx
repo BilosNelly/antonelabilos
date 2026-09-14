@@ -236,6 +236,15 @@ export function About() {
         ))}
       </div>
 
+      <div className="about__moment">
+        <Figure
+          {...photos.jsconf}
+          ratio="4 / 5"
+          focus="50% 30%"
+          className="blob-c"
+        />
+      </div>
+
       <h2 className="section__title">Off the clock</h2>
       <p className="section__lead">
         Most of my favourite photos are of me about to eat something.
@@ -286,12 +295,6 @@ export function About() {
 export function Contact() {
   return (
     <div className="page contact">
-      <img
-        className="contact__pen"
-        src="/photos/pen.jpg"
-        alt=""
-        aria-hidden="true"
-      />
       <div className="contact__body">
         <p className="page__kicker">Contact</p>
         <h1 className="page__title">Let’s talk</h1>

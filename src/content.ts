@@ -234,6 +234,12 @@ export const photos = {
     src: '/photos/antonela-networking.jpg',
     alt: 'Antonela talking with a colleague at a work event',
   },
+  jsconf: {
+    src: '/photos/antonela-jsconf.jpg',
+    alt: 'Antonela volunteering at Zurich JS Conf 2026',
+    caption:
+      'Volunteering at Zurich JS Conf. Did not plan the yellow shirt, but I will take the credit.',
+  },
   sushi: {
     src: '/photos/antonela-sushi.jpg',
     alt: 'Antonela eating sushi at an outdoor table',
