@@ -238,7 +238,7 @@ export const photos = {
     src: '/photos/antonela-jsconf.jpg',
     alt: 'Antonela volunteering at Zurich JS Conf 2026',
     caption:
-      'Volunteering at Zurich JS Conf. Did not plan the yellow shirt, but I will take the credit.',
+      'Volunteering at Zurich JS Conf. Did not plan the yellow shirt, but I survived.',
   },
   sushi: {
     src: '/photos/antonela-sushi.jpg',
