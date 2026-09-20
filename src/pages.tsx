@@ -187,7 +187,7 @@ export function About() {
           {aboutParagraphs.map((para, i) => (
             <div key={i}>
               <p>{para}</p>
-              {i === 2 ? (
+              {i === 14 ? (
                 <blockquote className="quote">{aboutQuote}</blockquote>
               ) : null}
             </div>

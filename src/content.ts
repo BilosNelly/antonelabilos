@@ -146,11 +146,30 @@ export const frontendCaseStudy = {
 /* ---- About ---- */
 
 export const aboutParagraphs = [
-  'My first computer arrived in 2005. It ran Windows, which did not bother me one bit at the time. I spent whole days playing games and poking at prehistoric tools, and somewhere in there a real love took hold: for the digital world, the internet, and the sheer number of things you could make it do.',
-  'Choosing to study Informatics felt obvious. About halfway through my degree I joined Infobip, then the only Croatian unicorn, and a very large door of opportunity and challenge swung open. I did not have much programming experience yet, but I found my footing quickly and started building web applications used by millions of people. I was lucky to work alongside some of the best engineers and architects around, and I learned from all of them. I started in teams of four to six, and later moved into cross teams, helping them onboard onto what was then a brand new frontend ecosystem. My days were mostly React, JavaScript and Node.js, with some Java later on.',
-  'Through every kind of challenge, the work I always reached for first was anything tied directly to users. I loved talking to them. Along the way I met colleagues from many offices and locations, and I grew a genuine love for user experience and for making it better, so I decided to shape my expertise in that direction.',
-  'Then AI arrived. Just before AI and coding tools went mainstream, I enrolled in an MBA in Leadership, and finished first in my cohort two years later.',
-  'After a lot of adventures, projects and wins, and more than six years in Croatia, I decided to try life beyond it and start a new chapter in Switzerland.',
+  'My first computer arrived in 2005.',
+  'It ran Windows, which, at the time, did not bother me in the slightest. I spent entire days playing games, clicking through prehistoric-looking software, breaking things, fixing things, and trying to understand what this strange digital world could do.',
+  'Somewhere in all of that, I got hooked.',
+  'Not only on computers, but on the internet itself. On the idea that you could build something once and suddenly put it in front of thousands, or millions, of people.',
+  'So studying Informatics felt like the obvious choice.',
+  'Halfway through my degree, I joined Infobip, at the time Croatia’s only unicorn. I did not have years of programming experience behind me. What I did have was curiosity, a willingness to figure things out, and a very steep learning curve ahead of me.',
+  'I found my footing quickly.',
+  'Before long, I was building web applications used by millions of people and working alongside engineers and architects who were far better than me at things I wanted to understand. I learned a lot by watching them, asking questions, making mistakes, and trying again.',
+  'I started in small teams of four to six people. Later, my role became much more cross-functional. I worked across teams, helping people adopt what was then a brand-new frontend ecosystem.',
+  'Most of my days were React, JavaScript and Node.js, with some Java finding its way in later.',
+  'But over time, I noticed something about myself.',
+  'Whenever there was a problem close to the user, that was the problem I wanted.',
+  'I liked talking to users. I liked understanding why something that made perfect sense to us made absolutely no sense to them. I liked finding the small bits of friction that engineers could easily overlook but users felt immediately.',
+  'And the more people I met across different teams, offices and countries, the more interested I became in the space between technology and human behaviour.',
+  'That eventually turned into a real love for user experience.',
+  'Then AI arrived and changed the conversation again.',
+  'Just before AI coding tools became part of everyday work, I enrolled in an MBA in Leadership. Two years later, I graduated first in my cohort.',
+  'It turned out to be good timing.',
+  'Technology was moving faster, but the questions I found most interesting were becoming more human: How do people make decisions? How do teams adapt? How do you build products people actually want to use? And how do you lead when the tools, expectations and possibilities keep changing underneath you?',
+  'After more than six years at Infobip, plenty of projects, adventures, mistakes and wins, I felt ready for a different kind of challenge.',
+  'So I packed up my life in Croatia and moved to Switzerland.',
+  'New country. New chapter.',
+  'Still curious about the same thing that pulled me in back in 2005:',
+  'what happens when good technology meets real human needs.',
 ]
 
 export const aboutQuote =
