@@ -168,7 +168,7 @@ export function CaseStudy({ data }: { data: typeof caseStudy }) {
 
 export function About() {
   return (
-    <div className="page">
+    <div className="page about">
       <p className="page__kicker">About</p>
       <h1 className="page__title">Hello, I’m Antonela</h1>
       <p className="page__intro">Unofficially, in three words: I eat everything.</p>
@@ -227,7 +227,7 @@ export function About() {
         </div>
       </div>
 
-      <h2 className="section__title">Experience</h2>
+      <h2 className="section__title">Experience (9 years)</h2>
       <div className="xp">
         {experience.map((job) => (
           <article className="xp__job" key={job.company}>
@@ -240,15 +240,6 @@ export function About() {
             <p className="xp__place">{job.place}</p>
           </article>
         ))}
-      </div>
-
-      <h2 className="section__title">Off the clock</h2>
-      <p className="section__lead">
-        Most of my favourite photos are of me about to eat something.
-      </p>
-      <div className="gallery">
-        <Figure {...photos.restaurant} ratio="4 / 5" />
-        <Figure {...photos.sushi} ratio="4 / 5" className="blob-b" />
       </div>
 
       <h2 className="section__title">Skills</h2>
@@ -285,6 +276,15 @@ export function About() {
           </li>
         ))}
       </ul>
+
+      <h2 className="section__title">Off the clock</h2>
+      <p className="section__lead">
+        Most of my favourite photos are of me about to eat something.
+      </p>
+      <div className="gallery">
+        <Figure {...photos.restaurant} ratio="4 / 5" />
+        <Figure {...photos.sushi} ratio="4 / 5" className="blob-b" />
+      </div>
     </div>
   )
 }
