@@ -32,8 +32,9 @@ export function Link({ to, children, ...rest }: LinkProps) {
 }
 
 const NAV_LINKS = [
-  { label: 'Work', to: '/work' },
   { label: 'About', to: '/about' },
+  { label: 'Career', to: '/career' },
+  { label: 'Selected Projects', to: '/work' },
   { label: 'Contact', to: '/contact' },
 ]
 

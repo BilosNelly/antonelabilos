@@ -217,9 +217,71 @@ export const skillGroups = [
   },
 ]
 
+export const education: {
+  school: string
+  degree: string
+  field?: string
+  period: string
+  activities?: string
+  courses?: string[]
+  coursesLabel?: string
+}[] = [
+  {
+    school: 'Algebra MBA Business School',
+    degree: 'Master of Business Administration (MBA)',
+    field: 'Business Administration and Management, General',
+    period: 'Dec 2022 – May 2025',
+    coursesLabel: 'modules',
+    courses: [
+      'LEADERSHIP PROJECT',
+      'Leading others by understanding self',
+      'Business communication and negotiation',
+      'Managing and leading people',
+      'STARTUP PROJECT',
+      'Financial management',
+      'Financial and managerial accounting',
+      'Creativity and problem solving',
+      'Managerial economics',
+      'Entrepreneurship',
+      'Quantitative methods',
+      'New products management',
+      'Start up business project',
+      'Marketing management',
+      'International law and privacy',
+      'Operations management',
+      'Strategic management',
+      'Project management',
+    ],
+  },
+  {
+    school: 'Juraj Dobrila University of Pula',
+    degree: 'Bachelor’s degree',
+    field: 'Computer Science',
+    period: '2014 – 2018',
+    activities: 'CareerBooster',
+    courses: [
+      'Programming (C++)',
+      'Data Structures and Algorithms (C++)',
+      'Databases 1 (Oracle DB)',
+      'Databases 2 (Oracle DB and PL/SQL)',
+      'Computer Networks',
+      'Computer System Security (Data security, Checkpoint)',
+      'Operating Systems (Windows, Linux, Linux Server)',
+      'Advanced Programming Techniques (C++)',
+      'Software Engineering (Java, UML)',
+      'IT Management',
+      'Project Management',
+      'IT Practicum 1 (Oracle Forms)',
+      'IT Practicum 2 (Oracle JDeveloper)',
+      'Dynamic Web Applications (PHP, JavaScript, MySQL)',
+      'ERP Systems',
+    ],
+  },
+]
+
+// Newest first — the standard resume convention. Keep new entries sorted by
+// year when adding to this list.
 export const certifications = [
-  { title: 'MBA in Leadership', place: 'Algebra Bernays', year: '2025' },
-  { title: 'BSc in Computer Science', place: 'University of Pula', year: '2019' },
   { title: 'B2B Sales Masterclass: People-Focused Selling', place: 'Udemy', year: '2026' },
   { title: 'AI Leadership Track: Gen AI & Agentic AI for Business Leaders', place: 'Udemy', year: '2026' },
   { title: 'The Complete Agentic AI Engineering Course', place: 'Udemy', year: '2025' },

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import './App.css'
 import { useRoute } from './router'
 import { Marquee, Nav } from './components'
-import { About, CaseStudy, Contact, Home, NotFound, Work } from './pages'
+import { About, CaseStudy, Career, Contact, Home, NotFound, Work } from './pages'
 import { caseStudy, frontendCaseStudy } from './content'
 
 const DEFAULT_TITLE =
@@ -10,12 +10,13 @@ const DEFAULT_TITLE =
 
 const TITLES: Record<string, string> = {
   '/': DEFAULT_TITLE,
-  '/work': 'Work · Antonela Bilos, AI and Software Engineer',
+  '/work': 'Selected Projects · Antonela Bilos, AI and Software Engineer',
   [caseStudy.slug]:
     'Simplifying revenue management through user research · Antonela Bilos',
   [frontendCaseStudy.slug]:
     'Frontend architecture adopted by 15+ teams · Antonela Bilos',
   '/about': 'About Antonela Bilos · AI Engineer and UX focused Software Engineer',
+  '/career': 'Career · Antonela Bilos, AI and Software Engineer',
   '/contact': 'Contact Antonela Bilos · AI and Software Engineer',
 }
 
@@ -31,6 +32,8 @@ function renderPage(route: string) {
       return <CaseStudy data={frontendCaseStudy} />
     case '/about':
       return <About />
+    case '/career':
+      return <Career />
     case '/contact':
       return <Contact />
     default:

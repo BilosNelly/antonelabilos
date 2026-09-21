@@ -4,6 +4,7 @@ import {
   aboutQuote,
   caseStudy,
   certifications,
+  education,
   experience,
   frontendCaseStudy,
   hackathonItem,
@@ -64,8 +65,8 @@ export function Work() {
     <div className="page">
       <header className="work__head">
         <div className="work__intro">
-          <p className="page__kicker">Work</p>
-          <h1 className="page__title">Selected work</h1>
+          <p className="page__kicker">Projects</p>
+          <h1 className="page__title">Selected projects</h1>
           <p className="page__intro">
             Case studies and projects where user research, product thinking and
             engineering met in the middle.
@@ -128,7 +129,7 @@ export function CaseStudy({ data }: { data: typeof caseStudy }) {
   return (
     <article className="page">
       <Link to="/work" className="back">
-        ← Back to work
+        ← Back to projects
       </Link>
 
       <p className="page__kicker">
@@ -227,7 +228,57 @@ export function About() {
         </div>
       </div>
 
-      <h2 className="section__title">Experience (9 years)</h2>
+      <h2 className="section__title">Off the clock</h2>
+      <p className="section__lead">
+        Most of my favourite photos are of me about to eat something.
+      </p>
+      <div className="gallery">
+        <Figure {...photos.restaurant} ratio="4 / 5" />
+      </div>
+    </div>
+  )
+}
+
+// Scrolls to a section without touching the URL (no #hash), and moves
+// accessibility focus there too, matching how a real "skip to" link behaves.
+function scrollToId(id: string) {
+  const el = document.getElementById(id)
+  if (!el) return
+  el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  el.focus({ preventScroll: true })
+}
+
+export function Career() {
+  return (
+    <div className="page career">
+      <p className="page__kicker">Career</p>
+      <h1 className="page__title">Experience & education</h1>
+      <p className="page__intro">
+        Nine years, two companies, one MBA finished first in class, and the
+        skills and certificates picked up along the way.
+      </p>
+
+      <nav className="career__jump" aria-label="Jump to a section">
+        <button type="button" onClick={() => scrollToId('experience')}>
+          Experience
+        </button>
+        <button type="button" onClick={() => scrollToId('education')}>
+          Education
+        </button>
+        <button type="button" onClick={() => scrollToId('skills')}>
+          Skills
+        </button>
+        <button type="button" onClick={() => scrollToId('certificates')}>
+          Certificates
+        </button>
+        <button type="button" onClick={() => scrollToId('languages')}>
+          Languages
+        </button>
+      </nav>
+
+      <h2 className="section__title" id="experience" tabIndex={-1}>
+        Experience (9 years)
+      </h2>
       <div className="xp">
         {experience.map((job) => (
           <article className="xp__job" key={job.company}>
@@ -242,7 +293,44 @@ export function About() {
         ))}
       </div>
 
-      <h2 className="section__title">Skills</h2>
+      <h2 className="section__title" id="education" tabIndex={-1}>
+        Education
+      </h2>
+      <div className="edu">
+        {education.map((e) => (
+          <article className="edu__item" key={e.school}>
+            <div className="edu__head">
+              <p className="edu__degree">
+                {e.degree}
+                {e.field ? <span className="edu__field"> · {e.field}</span> : null}
+              </p>
+              <p className="edu__period">{e.period}</p>
+            </div>
+            <p className="edu__school">{e.school}</p>
+            {e.activities ? (
+              <p className="edu__activities">
+                Activities and societies: {e.activities}
+              </p>
+            ) : null}
+            {e.courses ? (
+              <details className="edu__courses">
+                <summary>
+                  Relevant {e.coursesLabel ?? 'courses'} ({e.courses.length})
+                </summary>
+                <ul>
+                  {e.courses.map((course) => (
+                    <li key={course}>{course}</li>
+                  ))}
+                </ul>
+              </details>
+            ) : null}
+          </article>
+        ))}
+      </div>
+
+      <h2 className="section__title" id="skills" tabIndex={-1}>
+        Skills
+      </h2>
       <div className="skills">
         {skillGroups.map((group) => (
           <div key={group.label}>
@@ -256,7 +344,9 @@ export function About() {
         ))}
       </div>
 
-      <h2 className="section__title">Education & certificates</h2>
+      <h2 className="section__title" id="certificates" tabIndex={-1}>
+        Certificates ({certifications.length})
+      </h2>
       <ul className="certs">
         {certifications.map((cert) => (
           <li key={cert.title}>
@@ -267,7 +357,9 @@ export function About() {
         ))}
       </ul>
 
-      <h2 className="section__title">Languages</h2>
+      <h2 className="section__title" id="languages" tabIndex={-1}>
+        Languages
+      </h2>
       <ul className="langs">
         {languages.map((lang) => (
           <li key={lang.name}>
@@ -276,15 +368,6 @@ export function About() {
           </li>
         ))}
       </ul>
-
-      <h2 className="section__title">Off the clock</h2>
-      <p className="section__lead">
-        Most of my favourite photos are of me about to eat something.
-      </p>
-      <div className="gallery">
-        <Figure {...photos.restaurant} ratio="4 / 5" />
-        <Figure {...photos.sushi} ratio="4 / 5" className="blob-b" />
-      </div>
     </div>
   )
 }

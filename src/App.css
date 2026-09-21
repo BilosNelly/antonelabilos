@@ -42,6 +42,7 @@
 .surface--page {
   overflow: hidden auto;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   color: var(--espresso);
   /* same warm world as the home hero — peach glow off the top-right,
      a softer sand glow off the bottom-left, over paper */
@@ -338,6 +339,57 @@
   font-size: clamp(1.5rem, 3vw, 2.1rem);
   letter-spacing: -0.02em;
   color: var(--espresso);
+}
+
+/* ---- career: quick-jump nav + clearer section chunking ---- */
+
+.career__jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 2em;
+}
+
+.career__jump button {
+  appearance: none;
+  background: none;
+  font: inherit;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 600;
+  color: var(--coffee);
+  cursor: pointer;
+  padding: 8px 16px;
+  border: 1px solid color-mix(in srgb, var(--coffee) 30%, transparent);
+  border-radius: 999px;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.career__jump button:hover,
+.career__jump button:focus-visible {
+  color: var(--espresso);
+  border-color: var(--espresso);
+  background: color-mix(in srgb, var(--peach) 20%, transparent);
+}
+
+.career .section__title {
+  margin-top: 3.4em;
+  padding-top: 1.5em;
+  border-top: 1px solid color-mix(in srgb, var(--coffee) 18%, transparent);
+  scroll-margin-top: 100px;
+}
+
+.career .section__title:first-of-type {
+  margin-top: 2.2em;
+  padding-top: 0;
+  border-top: none;
+}
+
+/* focused programmatically by the jump-nav, not by tabbing through —
+   skip the default ring, the scroll itself is the visual confirmation */
+.career .section__title:focus {
+  outline: none;
 }
 
 .section__lead {
@@ -827,6 +879,127 @@ a.card:focus-visible {
   color: color-mix(in srgb, var(--espresso) 60%, transparent);
 }
 
+/* ---- education ---- */
+
+.edu {
+  display: grid;
+  gap: 2.4em;
+  margin-top: 1.4em;
+}
+
+.edu__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 20px;
+}
+
+.edu__degree {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  letter-spacing: -0.02em;
+  color: var(--espresso);
+}
+
+.edu__field {
+  color: var(--coffee);
+}
+
+.edu__period {
+  margin: 0;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--coffee);
+  white-space: nowrap;
+}
+
+.edu__school {
+  margin: 0.3em 0 0;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--espresso) 60%, transparent);
+}
+
+.edu__activities {
+  margin: 0.6em 0 0;
+  font-size: 0.85rem;
+  color: color-mix(in srgb, var(--espresso) 60%, transparent);
+}
+
+.edu__courses {
+  margin-top: 1em;
+}
+
+.edu__courses summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-weight: 600;
+  color: var(--espresso);
+  padding: 4px 2px;
+}
+
+.edu__courses summary::-webkit-details-marker {
+  display: none;
+}
+
+.edu__courses summary::before {
+  content: '';
+  width: 0;
+  height: 0;
+  flex: none;
+  border-left: 5px solid var(--espresso);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  transition: transform 0.18s ease;
+}
+
+.edu__courses[open] summary::before {
+  transform: rotate(90deg);
+}
+
+.edu__courses summary:focus-visible {
+  outline: 2px solid var(--coffee);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.edu__courses ul {
+  margin: 1em 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.55em 24px;
+}
+
+.edu__courses li {
+  position: relative;
+  padding-left: 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--espresso) 82%, transparent);
+}
+
+.edu__courses li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--coffee);
+}
+
 /* ---- gallery ---- */
 
 .gallery {
@@ -835,6 +1008,12 @@ a.card:focus-visible {
   gap: clamp(28px, 5vw, 52px);
   margin-top: 1.6em;
   padding-bottom: 12px;
+}
+
+/* a lone photo shouldn't stretch to fill the whole row — auto-fit only
+   collapses the *other* empty tracks, not this one */
+.gallery .figure:only-child {
+  max-width: 340px;
 }
 
 .figure {
@@ -1018,8 +1197,15 @@ a.card:focus-visible {
 
 /* ---- certs + languages ---- */
 
-.certs,
 .langs {
+  margin: 1.2em 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 2px;
+}
+
+.certs {
   margin: 1.2em 0 0;
   padding: 0;
   list-style: none;
@@ -1268,6 +1454,10 @@ a.contact__row:focus-visible .contact__val {
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;
+  }
+
+  .surface--page {
+    scroll-behavior: auto;
   }
 
   .marquee__track,

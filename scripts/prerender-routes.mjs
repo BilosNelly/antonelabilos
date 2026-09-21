@@ -11,6 +11,7 @@ const html = readFileSync(join(dist, 'index.html'), 'utf8')
 const routes = [
   '/work',
   '/about',
+  '/career',
   '/contact',
   '/work/revenue-management',
   '/work/frontend-architecture',
