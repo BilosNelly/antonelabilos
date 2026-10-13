@@ -65,7 +65,12 @@ export function Nav({ route, hero }: { route: string; hero: boolean }) {
 
 export function Marquee() {
   return (
-    <footer className="marquee" aria-label="What I do">
+    <footer
+      className="marquee"
+      aria-label="What I do"
+      tabIndex={0}
+      title="Pausable: hover or focus to stop the scroll"
+    >
       <div className="marquee__track" aria-hidden="true">
         {[0, 1].map((copy) => (
           <span className="marquee__group" key={copy}>

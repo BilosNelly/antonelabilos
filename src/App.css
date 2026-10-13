@@ -1311,6 +1311,7 @@ a.contact__row:focus-visible .contact__val {
 .marquee {
   overflow: hidden;
   padding: 4px 0 2px;
+  border-radius: 10px;
   -webkit-mask-image: linear-gradient(
     90deg,
     transparent 0,
@@ -1327,10 +1328,22 @@ a.contact__row:focus-visible .contact__val {
   );
 }
 
+.marquee:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--peach) 70%, transparent);
+  outline-offset: 2px;
+}
+
 .marquee__track {
   display: flex;
   width: max-content;
   animation: marquee-scroll 34s linear infinite;
+}
+
+/* a 34s infinite auto-scroll should be pausable without digging into OS
+   settings — hovering (or tabbing into the footer) stops it in place */
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
 }
 
 .marquee__group {
